@@ -6,22 +6,13 @@ import {
   SEARCH_TERM_CHANGED
 } from './actionTypes';
 
-import { createSelector } from 'reselect';
-
 const BASE_URL = "https://swapi.co/api/";
 
-const filterItems = (items, searchTerm) => {
-  return items.filter(function (result) {
-    return result.name.substr(0, searchTerm.length) === searchTerm
-  });
-};
-
-export const searchTermChanged = (searchTerm, items) => {
+export const searchTermChanged = (searchTerm) => {
   return {
     type: SEARCH_TERM_CHANGED,
     payload: {
-      searchTerm: searchTerm,
-      filteredItems: filterItems(items, searchTerm),
+      searchTerm
     }
   }
 };

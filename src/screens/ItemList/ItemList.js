@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, FlatList, StyleSheet, TextInput } from 'react-native';
 import { searchTermChanged } from '../../store/actions/actions';
+import { filterItemsSelector, itemsSelector } from "../../store/selectors";
 
 class ItemList extends Component {
   renderItem = ({ item }) => (
@@ -59,8 +60,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     loading: state.main.loading,
-    items: state.main.items,
-    filteredItems: state.main.filteredItems
+    items: itemsSelector(state),
+    filteredItems: filterItemsSelector(state)
   }
 };
 
