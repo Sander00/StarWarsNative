@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import configureStore from './src/store/configureStore';
-import Navigation from './src/Navigation/Navigation';
+import Navigation from './src/components/Navigation/Navigation';
 
 const store = configureStore();
 
